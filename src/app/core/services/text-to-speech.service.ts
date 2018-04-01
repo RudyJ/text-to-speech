@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import TextToSpeechV1 = require('watson-developer-cloud/text-to-speech/v1');
+// import TextToSpeechV1 = require('watson-developer-cloud/text-to-speech/v1');
 
 // https://www.ispeech.org/
 // https://responsivevoice.org/api/
