@@ -8,18 +8,18 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class TextToSpeechService {
   private responsiveVoice = (window as any).responsiveVoice;
-  private textToSpeech: TextToSpeechV1;
+  // private textToSpeech: TextToSpeechV1;
   constructor() {
-    this.textToSpeech = new TextToSpeechV1({
-      'url': 'https://stream.watsonplatform.net/text-to-speech/api',
-      'username': 'dd637aa0-0a0f-4d73-8bac-c1308f8ba73a',
-      'password': 'rdgROVIaicfu',
-      'headers': {
-        'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Headers': 'Authorization, content-type, Access-Control-Allow-Origin'
-      }
-    });
+    // this.textToSpeech = new TextToSpeechV1({
+    //   'url': 'https://stream.watsonplatform.net/text-to-speech/api',
+    //   'username': 'dd637aa0-0a0f-4d73-8bac-c1308f8ba73a',
+    //   'password': 'rdgROVIaicfu',
+    //   'headers': {
+    //     'Access-Control-Allow-Origin': '*',
+    //     'Content-Type': 'application/json',
+    //     'Access-Control-Allow-Headers': 'Authorization, content-type, Access-Control-Allow-Origin'
+    //   }
+    // });
   }
 
   public getVoices(): string[] {
