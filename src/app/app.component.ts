@@ -8,12 +8,23 @@ import { NotificationService, TextToSpeechService } from './core/services';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  public pitch: number = 1;
+  public rate: number = 1;
+  public text: string = '';
+  public voice: string = 'UK English Male';
+  public voices: string[];
+  public volume: number = 1;
   constructor(
     private notifySvc: NotificationService,
     private textToSpeechSvc: TextToSpeechService
   ) {}
 
-  public getVoices(): void {
-    this.textToSpeechSvc.listVoices();
+  public speak(): void {
+    this.textToSpeechSvc.speak(this.text, this.voice, this.pitch, this.rate, this.volume);
+  }
+
+  ngOnInit(): void {
+    this.voices = this.textToSpeechSvc.getVoices();
+    console.log(this.voices)
   }
 }

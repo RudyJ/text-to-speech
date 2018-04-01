@@ -1,15 +1,51 @@
 <app-toolbar></app-toolbar>
 <div class="main"
      fxLayout="column"
-     fxLayoutAlign="center stretch">
-  <mat-form-field>
+     fxLayoutAlign="space-evenly stretch">
+  <mat-form-field class="textfield"
+                  fxFlex>
     <textarea matInput
               matTextareaAutosize
+              [(ngModel)]="text"
               placeholder="Add your text here"
               type="text"></textarea>
   </mat-form-field>
-  <button class="mb-1" color="primary" mat-raised-button>Text to speech</button>
-  <button (click)="getVoices()" color="primary" mat-raised-button>Get voices</button>
+  <mat-form-field>
+    <mat-select [(ngModel)]="voice" placeholder="Voices">
+      <mat-option *ngFor="let voice of voices"
+                  [value]="voice.name">
+        {{ voice.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <span>Pitch</span>
+  <mat-slider [max]="2"
+              [min]="0"
+              [step]="0.1"
+              [thumb-label]="true"
+              [tick-interval]="1"
+              [(ngModel)]="pitch">
+  </mat-slider>
+  <span>Rate</span>
+  <mat-slider [max]="1.5"
+              [min]="0"
+              [step]="0.1"
+              [thumb-label]="true"
+              [tick-interval]="1"
+              [(ngModel)]="rate">
+  </mat-slider>
+  <span>Volume</span>
+  <mat-slider [max]="1"
+              [min]="0"
+              [step]="0.1"
+              [thumb-label]="true"
+              [tick-interval]="1"
+              [(ngModel)]="volume">
+  </mat-slider>
+  <button (click)="speak()"
+          color="primary"
+          mat-raised-button>Text to speech</button>
 </div>
 <button class="fab fab--bottom-right"
         (click)="importText()"
