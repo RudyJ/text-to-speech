@@ -25,6 +25,5 @@ export class AppComponent {
 
   ngOnInit(): void {
     this.voices = this.textToSpeechSvc.getVoices();
-    console.log(this.voices)
   }
 }

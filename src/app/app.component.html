@@ -4,14 +4,16 @@
      fxLayoutAlign="space-evenly stretch">
   <mat-form-field class="textfield"
                   fxFlex>
-    <textarea matInput
-              matTextareaAutosize
+    <textarea matAutosize
+              [rows]="8"
+              matInput
               [(ngModel)]="text"
               placeholder="Add your text here"
               type="text"></textarea>
   </mat-form-field>
   <mat-form-field>
-    <mat-select [(ngModel)]="voice" placeholder="Voices">
+    <mat-select [(ngModel)]="voice"
+                placeholder="Voices">
       <mat-option *ngFor="let voice of voices"
                   [value]="voice.name">
         {{ voice.name }}
