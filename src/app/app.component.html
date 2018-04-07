@@ -48,9 +48,14 @@
   <button (click)="speak()"
           color="primary"
           mat-raised-button>Text to speech</button>
+  <input #fileInput
+         (change)="importText($event)"
+         accept=".txt"
+         class="hidden"
+         type="file" />
 </div>
 <button class="fab fab--bottom-right"
-        (click)="importText()"
+        (click)="fileInput.click()"
         mat-button
         mat-fab>
   <mat-icon>file_upload</mat-icon>

@@ -17,7 +17,17 @@ export class AppComponent {
   constructor(
     private notifySvc: NotificationService,
     private textToSpeechSvc: TextToSpeechService
-  ) {}
+  ) { }
+
+  public importText(event: any): void {
+    const reader: FileReader = new FileReader();
+    const file: File = event.target.files[0];
+    reader.onload = (readerEvent: Event) => {
+      this.text = <string>(readerEvent.target as any).result;
+    };
+
+    reader.readAsText(file);
+  }
 
   public speak(): void {
     this.textToSpeechSvc.speak(this.text, this.voice, this.pitch, this.rate, this.volume);
